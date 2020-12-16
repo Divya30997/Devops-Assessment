@@ -1,0 +1,31 @@
+pipeline {
+agent any
+environment {
+dotnet = 'path\\to\\dotnet.exe'
+}
+stages {
+stage ('Checkout') {
+            steps {
+                 git url: 'https://github.com/Divya30997/Devops-Assessment',branch: 'master/WebApplication2'
+            }
+}
+stage ('Restore PACKAGES') {     
+         steps {
+             bat "dotnet restore"
+          }
+        }
+
+stage('Build') {
+     steps {
+            bat 'dotnet msbuild --configuration Release'
+      }
+   }
+   stage('Publish') {
+     steps {
+           bat 'dotnet publish .csproj -c Release'
+      }
+   }
+
+   
+ }
+}
