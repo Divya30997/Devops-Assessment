@@ -17,7 +17,7 @@ stage ('Restore PACKAGES') {
 
 stage('Build') {
      steps {
-            bat 'dotnet build --configuration Release'
+            bat 'dotnet msbuild --configuration Release'
       }
    }
    stage('Publish') {
