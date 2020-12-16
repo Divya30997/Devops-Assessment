@@ -22,7 +22,7 @@ stage('Build') {
    }
    stage('Publish') {
      steps {
-           bat 'dotnet publish .csproj -c Release'
+           bat 'dotnet publish WebApplication2.csproj -c Release'
       }
    }
 
